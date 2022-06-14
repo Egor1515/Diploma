@@ -20,7 +20,7 @@ build/
 *.ipr
 out/
 target
-.idea
+data
 
 ### NetBeans ###
 /nbproject/private/
