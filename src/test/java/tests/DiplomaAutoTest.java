@@ -3,12 +3,9 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.Keys;
 import page.BuyOnCredit;
 import page.FormFill;
 import page.StartPage;
-
-import java.awt.*;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -38,6 +35,16 @@ public class DiplomaAutoTest {
         credit.applyFormWithCard();
     }
 
+    @Test
+    void sendEmptyForm() {
+        Configuration.holdBrowserOpen = true;
+        page.buyOnCredit();
+        credit.sendEmptyFormCredit();
+        int expected = 5;
+        int actual = FormFill.getError();
+        assertEquals(expected, actual);
+    }
+
 
     @Test
     void checkValidCard() {
@@ -47,29 +54,34 @@ public class DiplomaAutoTest {
     }
 
     @Test
-
-    void shouldMonth(){
+    void checkValidMonth() {
         Configuration.holdBrowserOpen = true;
         page.buyWithCard();
         credit.checkValidMonth();
     }
 
-//    @Test
-//    void applyCredit() {
-//        Configuration.holdBrowserOpen = true;
-//        var credit = new BuyOnCredit();
-//        page.buyOnCredit();
-//        credit.applyFormOnCredit();
-//    }
-//
     @Test
-    void sendEmpty() {
+    void checkValidYear() {
         Configuration.holdBrowserOpen = true;
-        page.buyOnCredit();
-        credit.sendEmptyFormCredit();
-        int expected = 5;
-        int actual = FormFill.getError();
-        assertEquals(expected, actual);
+        page.buyWithCard();
+        credit.checkValidYear();
     }
+
+    @Test
+    void shouldCheckValidCvv() {
+        Configuration.holdBrowserOpen = true;
+        page.buyWithCard();
+        credit.checkValidCvv();
+    }
+
+    @Test
+    void shouldCheckValidName() {
+        Configuration.holdBrowserOpen = true;
+        page.buyWithCard();
+        credit.checkValidName();
+
+    }
+
+
 }
 
