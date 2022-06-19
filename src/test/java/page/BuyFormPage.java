@@ -42,10 +42,10 @@ public class BuyFormPage {
 
     }
 
-    public  void getError() {
+    public void getError() {
         ElementsCollection clientError = $$(".input__sub");
         for (SelenideElement el : clientError) {
-            el.should(Condition.visible, Condition.text("Неверный формат"));
+            el.should(Condition.visible,Condition.text("Неверный формат"));
         }
 
     }
