@@ -3,17 +3,16 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import page.BuyOnCredit;
-import page.FormFill;
+import page.BuyFormPage;
 import page.StartPage;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DiplomaAutoTest {
+public class FormApply {
 
     StartPage page = new StartPage();
-    BuyOnCredit credit = new BuyOnCredit();
+    BuyFormPage credit = new BuyFormPage();
 
 
     @BeforeEach
@@ -41,7 +40,7 @@ public class DiplomaAutoTest {
         page.buyOnCredit();
         credit.sendEmptyFormCredit();
         int expected = 5;
-        int actual = FormFill.getError();
+        int actual = credit.getError();
         assertEquals(expected, actual);
     }
 

@@ -1,9 +1,12 @@
 package dataHelper;
 
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Value
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class RegistrationInfo {
     String name;
     String cardNumber;
@@ -12,32 +15,4 @@ public class RegistrationInfo {
     String cvv;
 
 
-    public RegistrationInfo(String name, String cardNumber, String month, String year, String cvv) {
-        this.name = name;
-        this.cardNumber = cardNumber;
-        this.month = month;
-        this.year = year;
-        this.cvv = cvv;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getCardNumber() {
-        return cardNumber;
-    }
-
-    public String getMonth() {
-        return month;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public String getCvv() {
-        return cvv;
-    }
 }
-
