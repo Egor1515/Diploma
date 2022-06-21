@@ -12,7 +12,6 @@ public class DbConnections {
         Class.forName("com.mysql.jdbc.Driver");
         try (Connection connection = DriverManager.getConnection(url, userName, password)) {
             System.out.println("We're connected");
-
         }
 
     }
