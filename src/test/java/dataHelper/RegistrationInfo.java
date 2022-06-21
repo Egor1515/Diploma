@@ -1,12 +1,8 @@
 package dataHelper;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
+@Value
 public class RegistrationInfo {
     String name;
     String cardNumber;

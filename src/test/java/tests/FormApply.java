@@ -17,7 +17,7 @@ public class FormApply {
 
     @BeforeEach
     void setUp() {
-        open("http://localhost:9090");
+        open("http://localhost:8080");
     }
 
     @Test

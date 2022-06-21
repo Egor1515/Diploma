@@ -2,9 +2,11 @@ package dataHelper;
 
 import com.github.javafaker.Faker;
 import lombok.experimental.UtilityClass;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Locale;
 
+@UtilityClass
 public class DataGenerator {
 
     @UtilityClass
@@ -17,5 +19,4 @@ public class DataGenerator {
         }
 
     }
-
 }
