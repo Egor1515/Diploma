@@ -7,7 +7,9 @@ import dataHelper.DataGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
 
@@ -31,7 +33,6 @@ public class BuyFormPage {
 
     private SelenideElement clientResponse = $(".input__sub");
 
-
     public void fillIn() {
         var info = DataGenerator.Registration.generateInfo("ru");
         cardNumberField.setValue(info.getCardNumber());
@@ -44,6 +45,7 @@ public class BuyFormPage {
 
     public static int getError() {
         ElementsCollection clientError = $$(".input__sub");
+
         return clientError.size();
 
     }
