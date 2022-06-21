@@ -43,10 +43,13 @@ public class BuyFormPage {
 
     }
 
-    public static int getError() {
+    public void getError() {
         ElementsCollection clientError = $$(".input__sub");
 
-        return clientError.size();
+        for (SelenideElement el : clientError) {
+            el.should(Condition.visible, Condition.text("Неверный формат"));
+        }
+
 
     }
 

@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class FormApply {
 
     StartPage page = new StartPage();
-    BuyFormPage credit = new BuyFormPage();
+    BuyFormPage form = new BuyFormPage();
 
 
     @BeforeEach
@@ -24,24 +24,24 @@ public class FormApply {
     void applyCard() {
         Configuration.holdBrowserOpen = true;
         page.buyWithCard();
-        credit.applyFormWithCard();
+        form.applyFormWithCard();
     }
 
     @Test
     void applyCredit() {
         Configuration.holdBrowserOpen = true;
         page.buyWithCard();
-        credit.applyFormWithCard();
+        form.applyFormWithCard();
     }
 
     @Test
     void sendEmptyForm() {
         Configuration.holdBrowserOpen = true;
         page.buyOnCredit();
-        credit.sendEmptyFormCredit();
-        int expected = 5;
-        int actual = credit.getError();
-        assertEquals(expected, actual);
+        form.sendEmptyFormCredit();
+        form.getError();
+
+
     }
 
 
@@ -49,35 +49,35 @@ public class FormApply {
     void checkValidCard() {
         Configuration.holdBrowserOpen = true;
         page.buyOnCredit();
-        credit.checkValidCard();
+        form.checkValidCard();
     }
 
     @Test
     void checkValidMonth() {
         Configuration.holdBrowserOpen = true;
         page.buyWithCard();
-        credit.checkValidMonth();
+        form.checkValidMonth();
     }
 
     @Test
     void checkValidYear() {
         Configuration.holdBrowserOpen = true;
         page.buyWithCard();
-        credit.checkValidYear();
+        form.checkValidYear();
     }
 
     @Test
     void shouldCheckValidCvv() {
         Configuration.holdBrowserOpen = true;
         page.buyWithCard();
-        credit.checkValidCvv();
+        form.checkValidCvv();
     }
 
     @Test
     void shouldCheckValidName() {
         Configuration.holdBrowserOpen = true;
         page.buyWithCard();
-        credit.checkValidName();
+        form.checkValidName();
 
     }
 
