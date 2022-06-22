@@ -36,6 +36,10 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok:1.18.24'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
     testImplementation 'io.qameta.allure:allure-selenide:2.18.1'
+    testImplementation 'mysql:mysql-connector-java:8.0.29'
+    testImplementation 'io.debezium:debezium-connector-postgres:1.9.4.Final'
+
+
 
 }
 

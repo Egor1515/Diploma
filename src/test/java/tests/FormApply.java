@@ -1,10 +1,13 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import dataBase.DbConnections;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import page.BuyFormPage;
 import page.StartPage;
+
+import java.sql.SQLException;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,6 +21,11 @@ public class FormApply {
     @BeforeEach
     void setUp() {
         open("http://localhost:8080");
+    }
+
+    @Test
+    void startDB() throws SQLException, ClassNotFoundException {
+    DbConnections.postgresql();
     }
 
     @Test

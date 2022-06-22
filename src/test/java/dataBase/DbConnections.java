@@ -15,13 +15,13 @@ public class DbConnections {
         }
     }
 
-        public static void postgresql() throws ClassNotFoundException, SQLException {
-            String url = "jdbc:postgresql://localhost:5432/postgres";
-            String userName = "root";
-            String password = "root";
-            Class.forName("com.postgresql.jdbc.Driver");
-            try (Connection connection = DriverManager.getConnection(url, userName, password)) {
-                System.out.println("We're connected");
-            }
+    public static void postgresql() throws ClassNotFoundException, SQLException {
+        String url = "jdbc:postgresql://localhost:5432/postgres";
+        String userName = "root";
+        String password = "root";
+        Class.forName("com.postgresql.jdbc.Driver");
+        try (Connection connection = DriverManager.getConnection(url, userName, password)) {
+            System.out.println("We're connected");
         }
+    }
 }
