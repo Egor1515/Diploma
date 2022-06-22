@@ -4,13 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-<<<<<<< HEAD:src/test/java/dataBase/Main.java
-public class Main {
-    public static void main(String[] args)  throws ClassNotFoundException, SQLException {
-=======
-public class DbConnections {
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
->>>>>>> 323b71b01234edee38f38ab7714d210ac582cfad:src/test/java/dataBase/DbConnections.java
+
+public class DataBaseConnections {
+    public static void mysql() throws ClassNotFoundException, SQLException {
         String url = "jdbc:mysql://localhost:3306/app";
         String userName = "app";
         String password = "9mREsvXDs9Gk89Ef";

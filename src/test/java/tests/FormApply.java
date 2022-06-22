@@ -1,7 +1,8 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import dataBase.DbConnections;
+import dataBase.DataBaseConnections;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import page.BuyFormPage;
@@ -10,7 +11,6 @@ import page.StartPage;
 import java.sql.SQLException;
 
 import static com.codeborne.selenide.Selenide.open;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FormApply {
 
@@ -23,9 +23,10 @@ public class FormApply {
         open("http://localhost:8080");
     }
 
-    @Test
-    void startDB() throws SQLException, ClassNotFoundException {
-    DbConnections.postgresql();
+    @BeforeAll
+    static void startDB() throws SQLException, ClassNotFoundException {
+        DataBaseConnections.mysql();
+//    DbConnections.postgresql();
     }
 
     @Test
@@ -48,10 +49,7 @@ public class FormApply {
         page.buyOnCredit();
         form.sendEmptyFormCredit();
         form.getError();
-
-
     }
-
 
     @Test
     void checkValidCard() {
