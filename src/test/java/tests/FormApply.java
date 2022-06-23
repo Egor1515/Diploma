@@ -23,11 +23,11 @@ public class FormApply {
         open("http://localhost:8080");
     }
 
-    @BeforeAll
-    static void startDB() throws SQLException, ClassNotFoundException {
-        DataBaseConnections.mysql();
-//    DbConnections.postgresql();
-    }
+//    @Test
+//    void startDB() throws SQLException, ClassNotFoundException {
+//        DataBaseConnections.mysql();
+////    DbConnections.postgresql();
+//    }
 
     @Test
     void applyCard() {

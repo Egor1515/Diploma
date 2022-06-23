@@ -39,8 +39,6 @@ dependencies {
     implementation("mysql:mysql-connector-java:8.0.29")
     testImplementation 'mysql:mysql-connector-java:8.0.29'
     testImplementation 'io.debezium:debezium-connector-postgres:1.9.4.Final'
-
-
 }
 
 test {
