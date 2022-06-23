@@ -2,7 +2,6 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import dataBase.DataBaseConnections;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import page.BuyFormPage;
@@ -23,11 +22,11 @@ public class FormApply {
         open("http://localhost:8080");
     }
 
-//    @Test
-//    void startDB() throws SQLException, ClassNotFoundException {
-//        DataBaseConnections.mysql();
-////    DbConnections.postgresql();
-//    }
+    @Test
+    void startDB() throws SQLException, ClassNotFoundException {
+        DataBaseConnections.mysql();
+        DataBaseConnections.postgresql();
+    }
 
     @Test
     void applyCard() {
