@@ -12,7 +12,7 @@ public class DataBaseConnections {
         String password = "9mREsvXDs9Gk89Ef";
         Class.forName("com.mysql.jdbc.Driver");
         try (Connection connection = DriverManager.getConnection(url, userName, password)) {
-            System.out.println("We're connected");
+            System.out.println("We're connected mysql");
         }
     }
 
@@ -20,9 +20,9 @@ public class DataBaseConnections {
         String url = "jdbc:postgresql://localhost:5432/postgres";
         String userName = "root";
         String password = "root";
-        Class.forName("com.postgresql.jdbc.Driver");
+        Class.forName("org.postgresql.Driver");
         try (Connection connection = DriverManager.getConnection(url, userName, password)) {
-            System.out.println("We're connected");
+            System.out.println("We're connected postgresql");
         }
     }
 }
