@@ -1,22 +1,24 @@
 package tests;
 
 import dataBase.DataBaseConnections;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import page.BuyFormPage;
 import page.StartPage;
 
 import java.sql.SQLException;
 
+import static com.codeborne.selenide.Selenide.open;
+
 public class FormApply {
 
     StartPage page = new StartPage();
     BuyFormPage form = new BuyFormPage();
 
-
-//    @BeforeEach
-//    void setUp() {
-//        open("http://localhost:8080");
-//    }
+    @BeforeEach
+    void setUp() {
+        open("http://localhost:8080");
+    }
 
     @Test
     void startDB() throws SQLException, ClassNotFoundException {
