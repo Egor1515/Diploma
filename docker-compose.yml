@@ -22,16 +22,14 @@ services:
       - /var/lib/postgresql/data
     environment:
       - POSTGRES_DB=app
-      - POSTGRES_USER=root
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=root
 
   node-app:
-    build: .
+    build: node/gate-simulator
     image: node-app:1.0
     ports:
       - '9999:9999'
-    volumes:
-      - node/gate-simulator
 
 
 
