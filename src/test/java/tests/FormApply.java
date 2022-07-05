@@ -21,9 +21,8 @@ public class FormApply {
     }
 
     @Test
-    void startDB() throws SQLException, ClassNotFoundException {
-        DataBaseConnections.mysql();
-        DataBaseConnections.postgresql();
+    void startMysql() throws SQLException, ClassNotFoundException {
+        DataBaseConnections.connectDataBase("jdbc:mysql://localhost:3306/app","app","pass","com.mysql.jdbc.Driver");
     }
 
     @Test

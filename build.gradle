@@ -15,7 +15,6 @@ allure {
     }
 }
 
-
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
@@ -39,10 +38,13 @@ dependencies {
     testImplementation("mysql:mysql-connector-java:8.0.29")
     testImplementation 'mysql:mysql-connector-java:8.0.29'
     testImplementation 'org.postgresql:postgresql:42.3.6'
-
 }
 
 test {
     useJUnitPlatform()
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
+    systemProperty 'host', System.getProperty('host')
+    systemProperty 'user', System.getProperty('user')
+    systemProperty 'pass', System.getProperty('pass')
+    systemProperty 'driver', System.getProperty('driver')
 }
