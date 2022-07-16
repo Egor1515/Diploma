@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import page.BuyFormPage;
 import page.StartPage;
 
-import java.sql.SQLException;
-
 import static com.codeborne.selenide.Selenide.open;
 
 public class FormApply {
