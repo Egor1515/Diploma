@@ -6,16 +6,15 @@ import java.sql.SQLException;
 
 
 public class DataBaseConnections {
-    public static void connectDataBase() throws SQLException {
-        String urlInfo = System.setProperty("url", "jdbc:mysql://localhost:3306/app");
-        String nameInfo = System.setProperty("password", "9mREsvXDs9Gk89E");
-        String passwordInfo = System.setProperty("user", "app");
 
+    public static void connectDataBase() {
         String url = System.getProperty("url");
-        String userName = System.getProperty("user");
+        String user = System.getProperty("user");
         String password = System.getProperty("password");
-        try (Connection connection = DriverManager.getConnection(url, userName, password)) {
+        try (Connection connection = DriverManager.getConnection(url, user, password)) {
             System.out.println("We're connected");
+        } catch (SQLException ex) {
+            System.out.println("sql Ex");
         }
     }
 }

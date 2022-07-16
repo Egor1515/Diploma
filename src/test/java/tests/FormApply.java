@@ -15,13 +15,13 @@ public class FormApply {
     StartPage page = new StartPage();
     BuyFormPage form = new BuyFormPage();
 
-//    @BeforeEach
-//    void setUp() {
-//        open("http://localhost:8080");
-//    }
+    @BeforeEach
+    void setUp() {
+        open("http://localhost:8080");
+    }
 
     @Test
-    void startMysql() throws SQLException{
+    void startMysql() {
         DataBaseConnections.connectDataBase();
     }
 
