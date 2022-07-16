@@ -15,14 +15,14 @@ public class FormApply {
     StartPage page = new StartPage();
     BuyFormPage form = new BuyFormPage();
 
-    @BeforeEach
-    void setUp() {
-        open("http://localhost:8080");
-    }
+//    @BeforeEach
+//    void setUp() {
+//        open("http://localhost:8080");
+//    }
 
     @Test
-    void startMysql() throws SQLException, ClassNotFoundException {
-        DataBaseConnections.connectDataBase("jdbc:mysql://localhost:3306/app","app","pass","com.mysql.jdbc.Driver");
+    void startMysql() throws SQLException{
+        DataBaseConnections.connectDataBase();
     }
 
     @Test

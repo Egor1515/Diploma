@@ -35,7 +35,6 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok:1.18.24'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
     testImplementation 'io.qameta.allure:allure-selenide:2.18.1'
-    testImplementation("mysql:mysql-connector-java:8.0.29")
     testImplementation 'mysql:mysql-connector-java:8.0.29'
     testImplementation 'org.postgresql:postgresql:42.3.6'
 }
@@ -46,5 +45,4 @@ test {
     systemProperty 'host', System.getProperty('host')
     systemProperty 'user', System.getProperty('user')
     systemProperty 'pass', System.getProperty('pass')
-    systemProperty 'driver', System.getProperty('driver')
 }
