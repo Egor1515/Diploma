@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 import page.BuyFormPage;
 import page.StartPage;
 
+import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 import static com.codeborne.selenide.Selenide.open;
 
@@ -14,15 +16,15 @@ public class FormApply {
 
     StartPage page = new StartPage();
     BuyFormPage form = new BuyFormPage();
-
-    @BeforeEach
-    void setUp() {
-        open("http://localhost:8080");
-    }
+//
+//    @BeforeEach
+//    void setUp() {
+//        open("http://localhost:8080");
+//    }
 
     @Test
-    void startMysql() throws SQLException, ClassNotFoundException {
-        DataBaseConnections.connectDataBase("jdbc:mysql://localhost:3306/app","app","pass","com.mysql.jdbc.Driver");
+    void startMysql() throws ClassNotFoundException, SQLException {
+       DataBaseConnections.connectDataBase("jdbc:mysql://localhost:3306/app","app","9mREsvXDs9Gk89E","com.mysql.jdbc.Driver");
     }
 
     @Test

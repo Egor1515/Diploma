@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 
 public class DataBaseConnections {
-    public static void connectDataBase(String host, String user, String pass, String driver) throws ClassNotFoundException, SQLException {
+    public static void connectDataBase(String host, String user, String pass,String driver) throws ClassNotFoundException, SQLException {
         String url = System.getProperty(host);
         String userName = System.getProperty(user);
         String password = System.getProperty(pass);
