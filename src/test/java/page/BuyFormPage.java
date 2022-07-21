@@ -65,7 +65,19 @@ public class BuyFormPage {
         cvvCodeField.setValue(info.getCvv());
         buttonNext.click();
         title.shouldBe(Condition.visible, Duration.ofSeconds(15));
-        serverReply.shouldBe(Condition.text("Ошибка! Банк отказал в проведении операции."));
+        serverReply.shouldBe(Condition.text("Операция одобрена Банком."));
+    }
+    public void applyFormOnCredit() {
+        var info = DataGenerator.Registration.generateInfo("ru");
+        heading.shouldBe(Condition.text("Кредит по данным карты"));
+        cardNumberField.setValue(info.getCardNumber());
+        monthField.setValue(info.getMonth());
+        yearField.setValue(info.getYear());
+        cardOwnerField.setValue(info.getName());
+        cvvCodeField.setValue(info.getCvv());
+        buttonNext.click();
+        title.shouldBe(Condition.visible, Duration.ofSeconds(15));
+        serverReply.shouldBe(Condition.text("Операция одобрена Банком."));
     }
 
 
