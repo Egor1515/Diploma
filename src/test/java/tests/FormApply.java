@@ -1,15 +1,10 @@
 package tests;
 
 import dataBase.DataBaseConnections;
-import lombok.var;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import page.BuyFormPage;
 import page.StartPage;
-
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Scanner;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
