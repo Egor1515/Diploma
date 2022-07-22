@@ -26,7 +26,7 @@ public class BuyFormPage {
     private final SelenideElement monthField = $x("//*[@id='root']/div/form/fieldset/div[2]/span/span[1]/span/span/span[2]/input");
     private final SelenideElement yearField = $(".input__control[placeholder='22']");
     private final SelenideElement cardOwnerField = $x("//*[@id='root']/div/form/fieldset/div[3]/span/span[1]/span/span/span[2]/input");
-    private final SelenideElement cvvCodeField = $x("//*[@id='root']/div/form/fieldset/div[3]/span/span[2]/span/span/span[2]/input");
+    private final SelenideElement cvvCodeField = $("#root > div > form > fieldset > div:nth-child(3) > span > span:nth-child(2) > span > span > span.input__box > input");
     private final SelenideElement buttonNext = $(withText("Продолжить"));
 
     private SelenideElement clientResponse = $(".input__sub");
@@ -45,14 +45,14 @@ public class BuyFormPage {
         ElementsCollection clientError = $$(".input__sub");
 
         for (SelenideElement el : clientError) {
-            el.should(Condition.visible, Condition.text("Неверный формат"));
+            el.should(Condition.visible);
         }
 
 
     }
 
     public void clearField(SelenideElement field) {
-        field.sendKeys(Keys.chord(Keys.COMMAND, "A"), Keys.BACK_SPACE);
+        field.sendKeys(Keys.chord(Keys.CONTROL, "A"), Keys.BACK_SPACE);
     }
 
     public void applyFormWithCard() {
@@ -65,7 +65,19 @@ public class BuyFormPage {
         cvvCodeField.setValue(info.getCvv());
         buttonNext.click();
         title.shouldBe(Condition.visible, Duration.ofSeconds(15));
-        serverReply.shouldBe(Condition.text("Ошибка! Банк отказал в проведении операции."));
+        serverReply.shouldBe(Condition.text("Операция одобрена Банком."));
+    }
+    public void applyFormOnCredit() {
+        var info = DataGenerator.Registration.generateInfo("ru");
+        heading.shouldBe(Condition.text("Кредит по данным карты"));
+        cardNumberField.setValue(info.getCardNumber());
+        monthField.setValue(info.getMonth());
+        yearField.setValue(info.getYear());
+        cardOwnerField.setValue(info.getName());
+        cvvCodeField.setValue(info.getCvv());
+        buttonNext.click();
+        title.shouldBe(Condition.visible, Duration.ofSeconds(15));
+        serverReply.shouldBe(Condition.text("Операция одобрена Банком."));
     }
 
 
@@ -105,14 +117,14 @@ public class BuyFormPage {
         clearField(yearField);
         yearField.setValue("12");
         buttonNext.click();
-        serverReply.shouldBe(Condition.visible, Duration.ofSeconds(10));
+        clientResponse.shouldBe(Condition.visible, Duration.ofSeconds(10));
         clearField(yearField);
         yearField.setValue("12313");
         yearField.shouldHave(Condition.value("12"));
         clearField(yearField);
         yearField.setValue("13");
         buttonNext.click();
-        clientResponse.shouldBe(Condition.text("Неверно указан срок действия карты"));
+        clientResponse.shouldBe(Condition.text("Истёк срок действия карты"));
         clearField(yearField);
         yearField.setValue("№!%");
         yearField.shouldBe(Condition.empty);
@@ -199,9 +211,9 @@ public class BuyFormPage {
         buttonNext.click();
         serverReply.shouldBe(Condition.visible, Duration.ofSeconds(10));
         clearField(cvvCodeField);
-        cvvCodeField.find("001");
+        cvvCodeField.setValue("001");
         buttonNext.click();
-        clientResponse.shouldBe(Condition.visible);
+        clientResponse.shouldBe(Condition.visible,Duration.ofSeconds(15));
 
     }
 }

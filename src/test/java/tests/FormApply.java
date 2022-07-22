@@ -1,6 +1,7 @@
 package tests;
 
 import dataBase.DataBaseConnections;
+import lombok.var;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import page.BuyFormPage;
@@ -11,20 +12,17 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import static com.codeborne.selenide.Selenide.open;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FormApply {
 
     StartPage page = new StartPage();
     BuyFormPage form = new BuyFormPage();
-//
-//    @BeforeEach
-//    void setUp() {
-//        open("http://localhost:8080");
-//    }
 
-    @Test
-    void startMysql() throws ClassNotFoundException, SQLException {
-       DataBaseConnections.connectDataBase("jdbc:mysql://localhost:3306/app","app","9mREsvXDs9Gk89E","com.mysql.jdbc.Driver");
+
+    @BeforeEach
+    void setUp() {
+        open("http://localhost:8080");
     }
 
     @Test
@@ -35,8 +33,8 @@ public class FormApply {
 
     @Test
     void applyCredit() {
-        page.buyWithCard();
-        form.applyFormWithCard();
+        page.buyOnCredit();
+        form.applyFormOnCredit();
     }
 
     @Test
@@ -78,6 +76,18 @@ public class FormApply {
 
     }
 
+    @Test
+    void shouldGetStatus() {
+        String expected = DataBaseConnections.getStatus();
+        String  actual = "approved";
+        assertEquals(expected, actual);
+    }
 
+    @Test
+    void shouldGetCreditAmount() {
+        String expected = DataBaseConnections.getAmount();
+        String actual = "4500000";
+        assertEquals(expected,actual);
+    }
 }
 

@@ -42,8 +42,7 @@ dependencies {
 test {
     useJUnitPlatform()
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
-    systemProperty 'host', System.getProperty('host')
+    systemProperty 'url', System.getProperty('url')
     systemProperty 'user', System.getProperty('user')
     systemProperty 'pass', System.getProperty('pass')
-    systemProperty 'driver', System.getProperty('driver')
 }
