@@ -16,8 +16,10 @@ public class FormApply {
 
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws ClassNotFoundException {
+        DataBaseConnections.shouldClearTables();
         open("http://localhost:8080");
+
     }
 
     @Test

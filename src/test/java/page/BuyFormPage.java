@@ -19,13 +19,13 @@ import static com.codeborne.selenide.Selenide.*;
 @NoArgsConstructor
 public class BuyFormPage {
 
-    private final SelenideElement heading = $x("//*[@id='root']/div/h3");
-    private final SelenideElement title = $(".notification__title");
-    private final SelenideElement serverReply = $(".notification__content");
-    private final SelenideElement cardNumberField = $(".input__control[placeholder='0000 0000 0000 0000']");
-    private final SelenideElement monthField = $x("//*[@id='root']/div/form/fieldset/div[2]/span/span[1]/span/span/span[2]/input");
-    private final SelenideElement yearField = $(".input__control[placeholder='22']");
-    private final SelenideElement cardOwnerField = $x("//*[@id='root']/div/form/fieldset/div[3]/span/span[1]/span/span/span[2]/input");
+    private final SelenideElement heading = $("#root > div > h3");
+    private final SelenideElement title = $("#root > div > div.notification.notification_visible");
+    private final SelenideElement serverReply = $("#root > div > div.notification");
+    private final SelenideElement cardNumberField = $("#root > div > form > fieldset > div:nth-child(1) > span > span > span.input__box > input ");
+    private final SelenideElement monthField = $("#root > div > form > fieldset > div:nth-child(2) > span > span:nth-child(2) > span > span > span.input__box > input");
+    private final SelenideElement yearField = $("#root > div > form > fieldset > div:nth-child(2) > span > span:nth-child(2) > span");
+    private final SelenideElement cardOwnerField = $("#root > div > form > fieldset > div:nth-child(3) > span > span:nth-child(1) > span > span > span.input__box > input");
     private final SelenideElement cvvCodeField = $("#root > div > form > fieldset > div:nth-child(3) > span > span:nth-child(2) > span > span > span.input__box > input");
     private final SelenideElement buttonNext = $(withText("Продолжить"));
 
