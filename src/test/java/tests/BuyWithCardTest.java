@@ -1,12 +1,11 @@
 package tests;
 
 import dataBase.DataBaseConnections;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import page.BuyFormPage;
 import page.StartPage;
-
-import java.sql.SQLException;
 
 import static com.codeborne.selenide.Selenide.open;
 
@@ -20,6 +19,10 @@ public class BuyWithCardTest {
     void setUp() {
         open("http://localhost:8080");
     }
+    @AfterAll
+    static void clearTables(){
+        DataBaseConnections.shouldClearTables();
+    }
 
 
     @Test
@@ -28,11 +31,6 @@ public class BuyWithCardTest {
         form.applyFormWithCard();
     }
 
-    @Test
-    void applyCredit() {
-        page.buyOnCredit();
-        form.applyFormOnCredit();
-    }
 
     @Test
     void sendEmptyForm() {
@@ -74,8 +72,18 @@ public class BuyWithCardTest {
     }
 
     @Test
-    void shouldStatus() throws SQLException {
+    void shouldGetStatus() {
+        page.buyWithCard();
+        form.applyFormWithCard();
         DataBaseConnections.getStatus();
+    }
+
+    @Test
+    void shouldGetAmount(){
+        page.buyWithCard();
+        form.applyFormWithCard();
+        DataBaseConnections.getAmount();
+
     }
 }
 

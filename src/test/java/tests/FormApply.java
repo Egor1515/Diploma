@@ -1,26 +1,31 @@
 package tests;
 
 import dataBase.DataBaseConnections;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import page.BuyFormPage;
 import page.StartPage;
 
 import static com.codeborne.selenide.Selenide.open;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BuyOnCreditTest {
+public class FormApply {
+
     StartPage page = new StartPage();
     BuyFormPage form = new BuyFormPage();
 
+
     @BeforeEach
-    void setUp() {
+    void setUp() throws ClassNotFoundException {
+        DataBaseConnections.shouldClearTables();
         open("http://localhost:8080");
+
     }
 
-    @AfterAll
-    static void clearTables() {
-        DataBaseConnections.shouldClearTables();
+    @Test
+    void applyCard() {
+        page.buyWithCard();
+        form.applyFormWithCard();
     }
 
     @Test
@@ -70,16 +75,16 @@ public class BuyOnCreditTest {
 
     @Test
     void shouldGetStatus() {
-        page.buyOnCredit();
-        form.applyFormOnCredit();
-        DataBaseConnections.getStatus();
+        String expected = DataBaseConnections.getStatus();
+        String  actual = "approved";
+        assertEquals(expected, actual);
     }
 
     @Test
-    void shouldGetAmount(){
-        page.buyOnCredit();
-        form.applyFormOnCredit();
-        DataBaseConnections.getAmount();
-
+    void shouldGetCreditAmount() {
+        String expected = DataBaseConnections.getAmount();
+        String actual = "4500000";
+        assertEquals(expected,actual);
     }
 }
+
