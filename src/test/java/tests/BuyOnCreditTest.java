@@ -80,6 +80,5 @@ public class BuyOnCreditTest {
         page.buyOnCredit();
         form.applyFormOnCredit();
         DataBaseConnections.getAmount();
-
     }
 }
