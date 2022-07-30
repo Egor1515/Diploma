@@ -42,6 +42,6 @@ dependencies {
 test {
     useJUnitPlatform()
     systemProperty 'url', System.getProperty('url')
-    systemProperty 'USER', System.getProperty('USER')
-    systemProperty 'PASSWORD', System.getProperty('PASSWORD')
+    systemProperty 'user', System.getProperty('user')
+    systemProperty 'password', System.getProperty('user')
 }

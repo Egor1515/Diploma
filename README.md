@@ -19,8 +19,9 @@
 * Если по каким-то причинам порт 8080 на вашей машине используется другим приложением, используйте:
 java -jar app-order.jar -port=9090
 ## Команды для передачи параметров для запуска тестов с разными БД
-* ./gradlew test -DUSER=Значение -DPASSWORD=Значение -Durl=Значение
-* В поля "Значение" подставить соответствующие выбранной БД значения
+* ./gradlew test -DUSER=app -DPASSWORD=9mREsvXDs9Gk89E -Durl=jdbc:mysql://localhost:3306/app - MYSQL
+* ./gradlew test -DUSER=postgres -DPASSWORD=root -Durl=jdbc:postgresql://localhost:5432/app - POSTGRESQL
+
 
 
 
